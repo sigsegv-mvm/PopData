@@ -18,7 +18,7 @@ CPopulationManager *PopMgr()
 cell_t SP_GetWaveSpawnName(IPluginContext *pContext, const cell_t *params)
 {
 	if (PopMgr() == nullptr) {
-		pContext->ReportError("Can't find info_populator entity!");
+		pContext->ThrowNativeError("Can't find info_populator entity!");
 		return false;
 	}
 	
