@@ -40,7 +40,6 @@
 #include "smsdk_ext.h"
 
 
-#include <tier1/utlstring.h>
 #include <tier1/utlvector.h>
 #include <ehandle.h>
 #include <toolframework/itoolentity.h>

@@ -46,7 +46,7 @@ cell_t SP_GetWaveSpawnName(IPluginContext *pContext, const cell_t *params)
 //			DevMsg("    - Looking at active bot %d\n", j);
 			if (active_bots[j] == bot) {
 //				DevMsg("      - Match!\n");
-				pContext->StringToLocal(name, maxlen, wavespawn->GetName().Get());
+				pContext->StringToLocal(name, maxlen, wavespawn->GetName());
 				return true;
 			}
 		}

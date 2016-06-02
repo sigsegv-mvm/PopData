@@ -6,9 +6,21 @@ class CWaveSpawnPopulator
 {
 public:
 	static int off_m_strName;
-	CUtlString& GetName()
+	const char *GetName()
 	{
-		return *reinterpret_cast<CUtlString *>((uintptr_t)this + off_m_strName);
+		/* ideally we'd craft a CUtlString pointer here, but it turns out that
+		 * the crusty horrible hl2sdk-tf2 branch has an old, incompatible,
+		 * not-accurate-to-what-the-game-actually-uses implementation of that
+		 * class; so, we'll more-or-less reimplement SDK 2013's version of 
+		 * CUtlString::Get in here */
+		
+		char *m_pString = *reinterpret_cast<char **>((uintptr_t)this + off_m_strName);
+		
+		if (m_pString != nullptr) {
+			return m_pString;
+		} else {
+			return "";
+		}
 	}
 	
 	static int off_m_ActiveBots;
